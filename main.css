@@ -11,7 +11,7 @@
     width:80%;
     float:left;
     padding:10px;
-    background-color: lightblue;
+    background-color: tomato;
     margin: 100px;
 }
 #footer {
@@ -19,7 +19,7 @@
     color:blue;
     clear:both;
     text-align:center;
-    padding:5px; 
+    padding:20px; 
 }
 .images{
 	float: right;
