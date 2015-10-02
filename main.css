@@ -5,7 +5,7 @@
     text-align:center;
     padding:5px;
     margin: 0 0 15px 0;
-    text-align: center
+    float: center;
 }
 #section {
     width:80%;
@@ -13,8 +13,7 @@
     padding:10px;
     background-color: lightblue;
     float: left;
-
-	
+    margin: 100px;
 }
 #footer {
     background-color:black;
@@ -26,9 +25,15 @@
 .images{
 	float: right;
 	width: 65px;
-	margin-left: 25px;
+	margin: 25px;
 }
 .jumbotron{
 	background-color:black;
+}
+.pull-right {
+    float:right;
+}
+.stuff{
+    float:center;
 }
 </style>

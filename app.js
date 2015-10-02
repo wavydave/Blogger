@@ -3,6 +3,6 @@
     function buttonClick() {
     	i++;
         document.getElementById('inc').value = i;
-        i=i+1
+        
     }
 </script>
