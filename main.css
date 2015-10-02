@@ -1,0 +1,40 @@
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+    margin: 0 0 15px 0;
+    text-align: center
+}
+#section {
+    width:80%;
+    float:left;
+    padding:10px;
+    background-color: lightblue;
+
+	
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+.h1 {
+	background-color:black;
+}
+
+.images {
+	width: 100;
+}
+
+
+
+
+
+
+
+
+</style>
