@@ -1,1 +1,6 @@
-var buttonClick = 0
+console.log("hello");
+
+
+var fish = new Fish(0);
+
+console.log(fish.counter)

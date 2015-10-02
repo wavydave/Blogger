@@ -10,9 +10,10 @@
 #section {
     width:80%;
     float:left;
-    padding:10px;
+    padding:40px;
     background-color: tomato;
     margin: 100px;
+    font-size: 24px;
 }
 #footer {
     background-color:black;
@@ -26,9 +27,7 @@
 	width: 65px;
 	margin: 25px;
 }
-.jumbotron{
-	background-color:black;
-}
+
 .pull-right {
     float:right;
 }
