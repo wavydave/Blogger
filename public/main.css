@@ -1,0 +1,55 @@
+<style>
+.intro{
+    max-width: 60px;
+    max-height: 60px;
+    float: right;
+    width: 65px;
+    margin: 25px;
+}
+body{
+    color:purple ;
+    background-color:transparent;
+   
+    background-repeat: repeat;
+}
+#footer {
+    background-color:black;
+    margin:100px;
+    color:blue;
+    clear:both;
+    text-align:center;
+    padding:20px; 
+}
+.images{
+	float: right;
+	width: 65px;
+	margin: 25px;
+}
+
+
+#blag{
+    font:black;
+    background-color: rbga( 50 50 50 0);
+}
+.nav{
+    padding: 10;
+    text-align: center;
+    background-color: black;
+}
+.nav li{
+    display: inline
+    padding-right: 20px;
+
+}
+.col-med-6{
+    float: right;
+    width: 65px;
+    margin: 25px;
+}
+
+
+
+
+
+
+</style>
