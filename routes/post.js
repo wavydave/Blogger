@@ -30,8 +30,8 @@ router.route('/')
        res.send("houston we have a problem")
      } else{
        console.log("New blog named " + jam + "created!");
-       res.redirect("http://localhost:3000");
-       res.send(jam);
+       res.redirect("/blog.html");
+       
      }
    });
  });
