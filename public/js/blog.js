@@ -29,14 +29,15 @@ var BlogBox = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
+			type: 'POST',
+			data:'data',
 			cache: false,
 			success: function(data){
 				console.log("inside success")
 				this.setState({data: data});
-
 			}.bind(this),
 			error: function(xhr, status, err) {
-				console.log("broken url is " + this.props.url)
+				console.log("You done Messed up, Boy " + this.props.url)
 				console.error(this.props.url, status, err.toString());
 			}.bind(this)
 		});
