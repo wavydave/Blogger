@@ -9,8 +9,8 @@
 body{
     color:purple ;
     background-color:transparent;
-   
     background-repeat: repeat;
+    border:2px;
 }
 #footer {
     background-color:black;
@@ -24,6 +24,12 @@ body{
 	float: right;
 	width: 65px;
 	margin: 25px;
+}
+#mainBody{
+
+}
+#blogBody{
+    background-color:transparent;
 }
 
 
