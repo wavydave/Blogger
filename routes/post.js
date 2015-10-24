@@ -21,16 +21,18 @@ router.route('/')
  .post(function(req, res){
    var title = req.body.title;
    var body = req.body.body;
+   var name = req.body.name;
 
    mongoose.model('post').create({
      title: title,
-     body: body
+     body: body,
+     name: name
    }, function(err, jam){
      if(err){
        res.send("houston we have a problem")
      } else{
        console.log("New blog named " + jam + "created!");
-       res.redirect("/blog.html");
+       res.send(blog);
        
      }
    });

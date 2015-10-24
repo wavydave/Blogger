@@ -18,7 +18,7 @@
 // }
 
 (function(){
-$.getJSON( "http://localhost:3000/api/blog", function( data ) {
+$.getJSON( "/api/blog", function( data ) {
   var items = [];
   $.each( data, function( key, val ) {
 
@@ -31,8 +31,8 @@ $.getJSON( "http://localhost:3000/api/blog", function( data ) {
 });
 })();
 
-$(window).load(function){
-    showMe();
+$(window).load(function(){
+    
 
     $.getJSON("/api/blog", function( data ){
         var items = [];

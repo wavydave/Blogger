@@ -29,7 +29,6 @@ var BlogBox = React.createClass({
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
-			type: 'POST',
 			data:'data',
 			cache: false,
 			success: function(data){
@@ -49,11 +48,10 @@ var BlogBox = React.createClass({
 	render: function(){
 		return(
 			<div>
-
 				<BlogList data={this.state.data}/>
 			</div>
 			);
 	}
 });
 
-React.render(<BlogBox url="/api/blog" />, document.getElementById('blog-list'));
+React.render(<BlogBox url="/api/blog" />, document.getElementById('blogBody'));

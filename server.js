@@ -5,6 +5,7 @@ var http = require('http');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var passportLocal= require('passport-local');
 var flash = require('connect-flash');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
@@ -12,6 +13,10 @@ var session = require('express-session');
 var db = require('./model/db');
 var blogModel = require('./model/post');
 var blogRoutes = require('./routes/post');
+
+
+var mongoose = require('mongoose');
+
 
 var app = express();
 
@@ -22,12 +27,16 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use(session({secret:'ilovegoats'}));
-// app.use(passport.initialize());
-// app.use(passport.session()); 
-// app.use(flash());
+app.set('view engine', 'ejs'); // set up ejs for templating
 
-// require('./routes/userRoutes.js')(app, passport);
+app.use(session({secret:'ilovegoats'}));
+app.use(passport.initialize());
+app.use(passport.session()); 
+app.use(flash());
+
+require('./routes/userRoutes.js')(app, passport);
+
+require('./config/passport')(passport); 
 
 
 app.set('port', (process.env.PORT || 3000));
