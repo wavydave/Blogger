@@ -7,10 +7,6 @@
     margin: 25px;
 }
 body{
-    color:purple ;
-    background-color:transparent;
-    background-repeat: repeat;
-    border:2px;
 }
 #footer {
     background-color:black;
@@ -26,10 +22,19 @@ body{
 	margin: 25px;
 }
 #mainBody{
+    border: 2px;
+    border-style:ridge;
 
 }
 #blogBody{
     background-color:transparent;
+    border: 2px;
+    border-style:ridge;
+    border-left: 10px;
+    border-right:10px;
+    margin-height:10px;
+    margin-width:10px;
+    padding:80px;
 }
 
 
@@ -51,6 +56,19 @@ body{
     float: right;
     width: 65px;
     margin: 25px;
+}
+.idx-img{
+    width: 100%;
+ background-image: linear-gradient(
+     rgba(205, 181, 205, 0.5),
+   rgba(205, 181, 205, 0.5)
+     ), url("river.jpg");  
+ background-size: cover;
+ position: absolute;
+ /*background-attachment: scroll;*/
+ background-position: 0 100%;
+ background-repeat: no-repeat;
+ background-attachment: fixed;
 }
 
 

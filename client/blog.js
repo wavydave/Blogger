@@ -1,18 +1,23 @@
-var Blog-List = React.createClass({
+var BlogTitle = require('./BlogTitle');
+var BlogBox = require('./BlogBox');
+
+var BlogList = React.createClass({
 	render: function(){
-		var BlogData = this.props.data.map(function(blogs){
+		var blogData = this.props.data.map(function(blog){
 			return (
 				<div>
-				<h2>{blog.title}</h2>
-				<li> {blogs.body} </li>
+					<h2>{blog.title}</h2>
+					<li>{blog.body} </li>
 				</div>
+				)
 		});
+
 		return (
 			<div>
-			<h1> Blogs </h1>
-			<ul>
-			{blogData}
-			</ul>
+				<h1> Blogs </h1>
+				<ul>
+					{blogData}
+				</ul>
 			</div>
 			);
 	}
@@ -25,16 +30,16 @@ var BlogBox = React.createClass({
 
 	loadBlogsFromServer: function(){
 		$.ajax({
-			url: this.props.url '/api/blog',
+			url: this.props.url,
 			dataType: 'json',
+			data:'data',
 			cache: false,
 			success: function(data){
 				console.log("inside success")
 				this.setState({data: data});
-
 			}.bind(this),
 			error: function(xhr, status, err) {
-				console.log("broken url is " + this.props.url)
+				console.log("You done Messed up, Boy " + this.props.url)
 				console.error(this.props.url, status, err.toString());
 			}.bind(this)
 		});
@@ -46,10 +51,10 @@ var BlogBox = React.createClass({
 	render: function(){
 		return(
 			<div>
-				<h1>Bloggin</h1>
-
-				<Blog-List data={this.state.data}/>
+				<BlogList data={this.state.data}/>
 			</div>
 			);
 	}
 });
+
+React.render(<BlogBox url="/api/blog" />, document.getElementById('blogBody'));

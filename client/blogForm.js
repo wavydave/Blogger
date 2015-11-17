@@ -21,7 +21,7 @@ var BlogForm = React.createClass({
 			data: data,
 			success: function(data){
 				console.log("inside success");
-				document.location = ("blog.html")
+				document.location = ("index.html")
 			}.bind(this),
 			error: function(xhr, status, err) {
 				console.log("It is Pucked Up!" + this.props.url)
