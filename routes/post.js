@@ -27,12 +27,12 @@ router.route('/')
      title: title,
      body: body,
      name: name
-   }, function(err, jam){
+   }, function(err, blogPost){
      if(err){
        res.send("houston we have a problem")
      } else{
-       console.log("New blog named " + jam + "created!");
-       res.send(blog);
+       console.log("New blog named " + blogPost + "created!");
+       res.send(blogPost);
        
      }
    });

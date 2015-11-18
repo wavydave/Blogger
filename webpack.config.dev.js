@@ -3,14 +3,17 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'eval',
-  entry: [
-    'webpack-hot-middleware/client',
-    './client/public/blog'
-  ],
+  entry: {
+    blogPost: ['webpack-hot-middleware/client','./client/blogForm'],
+    home: ['webpack-hot-middleware/client',
+    './client/blog']
+    
+  },
   output: {
     path: path.join(__dirname, 'static'),
-    filename: 'bundle.js',
-    publicPath: '/static/'
+    filename: '[name].js',
+    publicPath: '/static/',
+    plugins: [ new webpack.optimize.CommonsChunkPlugin("init.js") ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

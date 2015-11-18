@@ -1,4 +1,8 @@
+var React = require('react');
+var BlogList = require('./BlogList');
+
 var BlogBox = React.createClass({
+
 	getInitialState: function(){
 		return{data: []};
 	},
@@ -19,6 +23,7 @@ var BlogBox = React.createClass({
 			}.bind(this)
 		});
 	},
+
 	componentDidMount: function(){
 		this.loadBlogsFromServer();
 	},
@@ -31,3 +36,5 @@ var BlogBox = React.createClass({
 			);
 	}
 });
+
+module.exports = BlogBox;

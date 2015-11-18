@@ -1,27 +1,31 @@
+var React = require('react');
+var ReactDOM = require('react-dom');
+
 var BlogForm = React.createClass({
 
 	handleSubmit: function(e){
 		
 		e.preventDefault();
 		
-		var title =React.findDOMNode(this.refs.title).value.trim();
-		var name =React.findDOMNode(this.refs.name).value.trim();
-		var body =React.findDOMNode(this.refs.body).value.trim();
+		var title =ReactDOM.findDOMNode(this.refs.title).value.trim();
+		var name =ReactDOM.findDOMNode(this.refs.name).value.trim();
+		var body =ReactDOM.findDOMNode(this.refs.body).value.trim();
 
 		if(!title){
 			return;
 		}
 		var data = ({title: title, name: name, body: body});
 
+		console.log(data, "before ajax");
+
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
 			type: 'POST',
-			cache: false,
 			data: data,
 			success: function(data){
 				console.log("inside success");
-				document.location = ("index.html")
+				document.location = "/blog.html"
 			}.bind(this),
 			error: function(xhr, status, err) {
 				console.log("It is Pucked Up!" + this.props.url)
@@ -32,9 +36,7 @@ var BlogForm = React.createClass({
 	render: function(){
 		return (
 			<div>
-		        <form >
-
-		        
+		        <form>		        
 		            <div className="form-group">
 		                <label htmlFor="">Blog Entry Title</label>
 		                <input type="text" className="form-control" ref="title" placeholder="Input field"/>
@@ -49,11 +51,9 @@ var BlogForm = React.createClass({
 		            <div className="form-group">
 		                <label htmlFor="">Type it!</label>
 		                <input type="text" className="form-control" ref="body" placeholder="Input field"/>
-
 		            </div>
 
 		            <button onClick={this.handleSubmit} type="submit" className="btn btn-primary">Submit</button>
-
 		        </form>
 			</div>
 			);
@@ -61,4 +61,4 @@ var BlogForm = React.createClass({
 });
 
 
-React.render(<BlogForm url="/api/blog" />, document.getElementById('blog-list'));
+ReactDOM.render(<BlogForm url="/api/blog"/>, document.getElementById('blogForm'));
