@@ -70,6 +70,20 @@ body{
  background-repeat: no-repeat;
  background-attachment: fixed;
 }
+#eyeLogo {
+
+   transform-style: preserve-3d;
+}
+
+.rotate-y {
+   animation: spinY 5s infinite linear;
+}
+
+@keyframes spinY {
+   from { transform: rotateY(0); }
+   to { transform: rotateY(360deg); }
+
+}
 
 
 

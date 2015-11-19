@@ -27,7 +27,7 @@ var Github = React.createClass ({
 		this.loadGitsFromServer();
 	},	
 	render: function(){
-		var gitstuff = this.state.data.map(function(c){
+		var gitstuff = this.state.data.map(function(c){	
 			return(
 				<div className="col-md-4">
 					<div className="panel panel-default box">    			
