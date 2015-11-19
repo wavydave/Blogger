@@ -13,6 +13,7 @@ var session = require('express-session');
 var db = require('./model/db');
 var blogModel = require('./model/post');
 var blogRoutes = require('./routes/post');
+var githubRoutes = require('./routes/github');
 
 
 var mongoose = require('mongoose');
@@ -81,6 +82,7 @@ app.use(express.static('public'));
 app.use('/api/blog', blogRoutes);
 
 app.use('/api/blogPost', blogRoutes);
+app.use('/api/github', githubRoutes);
 
 app.get('/', function(req, res){
     res.readFile('index.html')

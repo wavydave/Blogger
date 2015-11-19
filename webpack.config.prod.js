@@ -4,9 +4,9 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: {
-    blogPost: ['webpack-hot-middleware/client','./client/blogForm'],
-    home: ['webpack-hot-middleware/client',
-    './client/blog']
+    blogPost: ['./client/blogForm'],
+    github: ['webpack-hot-middleware/client','./client/index'],
+    home: ['./client/blog']
     
   },
   output: {
