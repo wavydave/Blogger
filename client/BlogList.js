@@ -7,6 +7,7 @@ var BlogList = React.createClass({
 				<div>
 					<h2>{blog.title}</h2>
 					<li>{blog.body} </li>
+					<li>{blog.comments}</li>
 				</div>
 				)
 		});
@@ -17,6 +18,9 @@ var BlogList = React.createClass({
 				<ul>
 					{blogData}
 				</ul>
+				// <ul>
+				// 	{commentData}
+				// </ul>
 			</div>
 			);
 	}

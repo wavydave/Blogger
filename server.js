@@ -13,6 +13,7 @@ var session = require('express-session');
 var db = require('./model/db');
 var blogModel = require('./model/post');
 var blogRoutes = require('./routes/post');
+var commentModel = require('./model/comment');
 var githubRoutes = require('./routes/github');
 
 

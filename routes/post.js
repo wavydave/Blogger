@@ -9,7 +9,9 @@ router.route('/')
 
 /* GET All Blogs */
  .get(function(req, res) {
-   mongoose.model('post').find({}, function(err, blogs){
+   mongoose.model('Post').find({})
+   .populate('comments')
+   .exec(function(err, blogs){
      if(err){
        return console.log(err);
      } else {
@@ -23,7 +25,7 @@ router.route('/')
    var body = req.body.body;
    var name = req.body.name;
 
-   mongoose.model('post').create({
+   mongoose.model('Post').create({
      title: title,
      body: body,
      name: name
@@ -41,7 +43,7 @@ router.route('/')
 //url/api/blogs/4353453634
  router.route('/:id')
    .get(function(req, res) {
-       mongoose.model('post').findById({
+       mongoose.model('Post').findById({
            _id: req.params.id
        }, function(err, blog) {
            if (err)
@@ -51,25 +53,8 @@ router.route('/')
        });
    })
 
-   // update the bear with this id (accessed at PUT http://localhost:8080/api/bears/:id)
-   // .put(function(req, res) {
-
-   //     mongoose.model('Blog').findById({
-   //         _id: req.params.id
-   //     }, function(err, blog) {
-   //       blog.title = req.body.title;
-   //       blog.body = req.body.body;
-   //         if (err)
-   //             res.send(err);
-
-   //         blog.save();
-   //         res.json(blog)
-   //     });
-   // })
-   // delete the bear with this id (accessed at DELETE http://localhost:8080/api/blogs/:id)
-
    .delete(function(req, res) {
-       mongoose.model('post').remove({
+       mongoose.model('Post').remove({
            _id: req.params.id
        }, function(err, blog) {
            if (err)
@@ -78,5 +63,38 @@ router.route('/')
            res.json({ message: 'Successfully deleted' });
        });
    });
+
+router.route('/:id/comments')
+  .post(function(req, res){
+
+    mongoose.model('Comment').create({
+      body: req.body.body,
+      user: req.user
+
+    }, function(err, comment){
+      if(err)
+          res.send(err)
+      mongoose.model('Post').findById({
+          _id: req.params.id
+
+        }, function(err, blog){
+          if(err)
+            res.send(err)
+          blog.comments.push(comment._id);
+          blog.save();
+          res.send(comment);
+        });
+    });
+  })
+
+router.route('/:id/comments')
+  .get(function(req, res){
+    mongoose.model('Post').findById({ _id: req.params.id})
+      .populate('comments').exec(function(err, comments){
+        if(err)
+          res.send(err)
+        res.send(comments)
+      })
+  })
 
 module.exports = router;
