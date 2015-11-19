@@ -76,7 +76,7 @@ body{
 }
 
 .rotate-y {
-   animation: spinY 5s infinite linear;
+   animation: spinY 4s infinite linear;
 }
 
 @keyframes spinY {

@@ -50,7 +50,7 @@ var BlogForm = React.createClass({
 
 		            <div className="form-group">
 		                <label htmlFor="">Type it!</label>
-		                <input type="text" className="form-control" ref="body" placeholder="Input field"/>
+		                <input type="textarea" className="form-control" ref="body" placeholder="Input field"/>
 		            </div>
 
 		            <button onClick={this.handleSubmit} type="submit" className="btn btn-primary">Submit</button>
