@@ -4,17 +4,16 @@ var webpack = require('webpack');
 module.exports = {
   devtool: 'source-map',
   entry: {
-    blogPost: ['./client/blogForm'],
-    github: ['webpack-hot-middleware/client','./client/index'],
-    home: ['./client/blog']
+    blogPost: './client/blogForm',
+    github: './client/index',
+    home: './client/blog'
     
   },
   output: {
     path: path.join(__dirname, 'static'),
     filename: '[name].js',
     publicPath: '/static/',
-    plugins: [ new webpack.optimize.CommonsChunkPlugin("init.js") ]
-  },
+   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.DefinePlugin({
