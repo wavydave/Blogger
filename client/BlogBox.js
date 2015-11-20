@@ -14,7 +14,7 @@ var BlogBox = React.createClass({
 			data:'data',
 			cache: false,
 			success: function(data){
-				console.log("inside success")
+				console.log("successfully loading blogs from server!-------", data)
 				this.setState({data: data});
 			}.bind(this),
 			error: function(xhr, status, err) {

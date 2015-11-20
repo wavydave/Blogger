@@ -1,6 +1,6 @@
 var React = require('react');
 var Github = require('./Github');
-var Twitter = require('./Twitter');
+var Twitter = require('./twitterList');
 var ReactDOM = require('react-dom');
 
 

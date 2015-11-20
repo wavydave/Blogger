@@ -1,13 +1,24 @@
 var React = require('react');
+var blogComment = require('./blogComment');
 
 var BlogList = React.createClass({
 	render: function(){
 		var blogData = this.props.data.map(function(blog){
+			if(blog.comments.length > 0){
+				var comments = blog.comments.map(function(c){
+					return (
+						<p> {c.body} </p>
+						)
+				})	
+			} else {
+				var comments = "No Comments Yet.."
+			}
 			return (
 				<div>
-					<h2>{blog.title}</h2>
-					<li>{blog.body} </li>
-					<li>{blog.comments}</li>
+					<h3> {blog.title} </h3>
+					<p> {blog.body} </p>
+					<p> {blog.date} </p>
+						{comments}
 				</div>
 				)
 		});
@@ -18,9 +29,6 @@ var BlogList = React.createClass({
 				<ul>
 					{blogData}
 				</ul>
-				// <ul>
-				// 	{commentData}
-				// </ul>
 			</div>
 			);
 	}
