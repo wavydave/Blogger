@@ -13,7 +13,7 @@ var TweetList = React.createClass({
 					{tweetData}
 				</ul>
 			</div>
-			);
+		);
 	}
 });
 
@@ -60,19 +60,6 @@ var TweetBox = React.createClass({
     }
 });
 
-var Main = React.createClass({
-	    render: function() {
-        return (
-        <div>
-            <ul>
-              <TweetBox url="/api/handle/"/>
-              <FollowerBox url="/api/followers/"/>
-            </ul>
-        </div>
-          );
-    }
-
-})
 
 
 module.exports = TweetList;

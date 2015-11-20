@@ -45,7 +45,6 @@ var BlogForm = React.createClass({
 		            <div className="form-group">
 		                <label htmlFor="">Name it!</label>
 		                <input type="text" className="form-control" ref="name" placeholder="Input field"/>
-
 		            </div>
 
 		            <div className="form-group">

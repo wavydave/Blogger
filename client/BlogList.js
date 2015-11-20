@@ -1,5 +1,5 @@
 var React = require('react');
-var blogComment = require('./blogComment');
+var BlogComment = require('./BlogComment');
 
 var BlogList = React.createClass({
 	render: function(){
@@ -18,11 +18,11 @@ var BlogList = React.createClass({
 					<h3> {blog.title} </h3>
 					<p> {blog.body} </p>
 					<p> {blog.date} </p>
-						{comments}
+					{comments}					
+					<BlogComment blogId={blog._id}/>
 				</div>
 				)
 		});
-
 		return (
 			<div>
 				<h1> Blogs </h1>
