@@ -64,7 +64,7 @@ router.route('/')
        });
    });
 
-router.route('/:id/comments')
+router.route('/:id/comment')
   .post(function(req, res){
 
     mongoose.model('Comment').create({

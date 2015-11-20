@@ -33,4 +33,5 @@ var BlogList = React.createClass({
 			);
 	}
 });
+
 module.exports = BlogList;

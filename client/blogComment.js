@@ -3,27 +3,27 @@ var React = require('react');
 var BlogComment = React.createClass({
     handleCommentSubmit: function(e){
         e.preventDefault();
-        var body = this.refs.body.getDOMNode().value;
+        var body = React.findDOMNode(this.refs.body).value;
         if(!body){
             return;
         }
         var data = ({ body: body });
         var blogId = this.props.blogId;
         $.ajax({
-            url: '/api/blogs/'+ blogId +'/comments',
+            url: '/api/blog/'+ blogId +'/comment',
             dataType: 'json',
             data: data,
             type:'POST',
                 success: function(response){
                 console.log("posting data!", response)
-                document.location="/blog.html"
+                document.location="/blog.html";
                 }.bind(this),
                 error: function(xhr, status, err){
                     console.log("not posting data!")
                     console.error( status, err.toString());
                 }.bind(this)
         })
-        this.refs.body.getDOMNode().value = ''
+        React.findDOMNode(this.refs.body).value = ''
         
     },
     render: function() {
@@ -36,7 +36,7 @@ var BlogComment = React.createClass({
         	  </div>
         	      	<button onClick={this.handleCommentSubmit} type="submit" className="btn btn-default">Submit</button>
           </form>
-          
+
         </div>
         );
     }
