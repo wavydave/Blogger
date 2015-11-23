@@ -2,7 +2,9 @@ var React = require('react');
 var BlogComment = require('./BlogComment');
 
 var BlogList = React.createClass({
+	
 	render: function(){
+		var self = this;
 		var blogData = this.props.data.map(function(blog){
 			if(blog.comments.length > 0){
 				var comments = blog.comments.map(function(c){
@@ -19,7 +21,7 @@ var BlogList = React.createClass({
 					<p> {blog.body} </p>
 					<p> {blog.date} </p>
 					{comments}					
-					<BlogComment blogId={blog._id}/>
+					<BlogComment blogId={blog._id} onPost={self.props.newData}/>
 				</div>
 				)
 		});

@@ -29,9 +29,14 @@ var BlogBox = React.createClass({
 	},
 
 	render: function(){
+		var self = this;
+		var doRefresh = function(){
+			self.loadBlogsFromServer()
+		}
 		return(
 			<div>
-				<BlogList data={this.state.data}/>
+				
+				<BlogList data={this.state.data} newData={doRefresh}/>
 			</div>
 			);
 	}

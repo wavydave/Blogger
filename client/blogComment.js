@@ -3,7 +3,7 @@ var React = require('react');
 var BlogComment = React.createClass({
     handleCommentSubmit: function(e){
         e.preventDefault();
-        var body = React.findDOMNode(this.refs.body).value;
+        var body = this.refs.body.value;
         if(!body){
             return;
         }
@@ -15,15 +15,16 @@ var BlogComment = React.createClass({
             data: data,
             type:'POST',
                 success: function(response){
-                console.log("posting data!", response)
-                document.location="/blog.html";
+                if(this.props.onPost){
+                this.props.onPost()
+                }
                 }.bind(this),
                 error: function(xhr, status, err){
                     console.log("not posting data!")
                     console.error( status, err.toString());
                 }.bind(this)
         })
-        React.findDOMNode(this.refs.body).value = ''
+        this.refs.body.value = ''
         
     },
     render: function() {
