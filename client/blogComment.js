@@ -1,6 +1,7 @@
 var React = require('react');
 
 var BlogComment = React.createClass({
+    
     handleCommentSubmit: function(e){
         e.preventDefault();
         var body = this.refs.body.value;

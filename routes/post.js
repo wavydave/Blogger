@@ -1,5 +1,5 @@
 var express = require('express');
-var router = express.Router();
+var router = express.Router();9
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }))
@@ -9,8 +9,7 @@ router.route('/')
 
 /* GET All Blogs */
  .get(function(req, res) {
-   mongoose.model('Post').find({})
-   .populate('comments')
+   mongoose.model('Post').find({}).populate({ path:'comments', populate: {path:'user',select:'local.email'}})
    .exec(function(err, blogs){
      if(err){
        return console.log(err);
@@ -64,6 +63,16 @@ router.route('/')
        });
    });
 
+router.route('/:id/comments')
+  .get(function(req, res){
+    mongoose.model('Post').findById({ _id: req.params.id})
+      .populate({ path:'comments', populate: {path:'user',select:'local.email local.username'}}).exec(function(err, comments){
+        if(err)
+          res.send(err)
+        res.send(comments)
+      })
+  })
+
 router.route('/:id/comment')
   .post(function(req, res){
 
@@ -82,19 +91,13 @@ router.route('/:id/comment')
             res.send(err)
           blog.comments.push(comment._id);
           blog.save();
+          console.log('comment');
           res.send(comment);
+
         });
     });
   })
 
-router.route('/:id/comments')
-  .get(function(req, res){
-    mongoose.model('Post').findById({ _id: req.params.id})
-      .populate('comments').exec(function(err, comments){
-        if(err)
-          res.send(err)
-        res.send(comments)
-      })
-  })
+
 
 module.exports = router;

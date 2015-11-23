@@ -17,6 +17,7 @@ var blogRoutes = require('./routes/post');
 var Twit = require('twit');
 var commentModel = require('./model/comment');
 var githubRoutes = require('./routes/github');
+var prettydate = require("pretty-date");
 
 require('dotenv').load();
 
