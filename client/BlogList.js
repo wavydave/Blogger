@@ -9,16 +9,19 @@ var BlogList = React.createClass({
 	render: function(){
 		var self = this;
 		var blogData = this.props.data.map(function(blog){
-			if(blog.comments.length>0){
+			if(blog.comments.length > 0){
 				var comments = blog.comments.map(function(comment){
-					window.user = comment.user;
-					console.log(comment.user.local.email);
-					var grav = "http://gravatar.com/avatar/" + md5(comment.user.local.email); 
+					console.log(comment)
+					if(comment.user){
+						console.log("************", comment.user)
+						var grav = "http://gravatar.com/avatar/" + md5(comment.user.local.email); 
+						var gravy = <img src={grav}/>
+					}
+					
 					var newDate = prettydate.format(new Date(comment.date))
 				return (
 					<figure className="comment">
-					<img src={grav}/>
-					<p>{comment.user.local.handle}</p>
+						{gravy}
 					<p> {comment.body} <strong>{newDate}</strong></p>
 					</figure>
 						)
