@@ -20,9 +20,9 @@ var BlogList = React.createClass({
 					
 					var newDate = prettydate.format(new Date(comment.date))
 				return (
-					<figure className="comment">
+					<figure className={comment}>
 						{gravy}
-					<p> {comment.body} <strong>{newDate}</strong></p>
+					<p><strong>{comment.body}</strong> <strong>{newDate}</strong></p>
 					</figure>
 						)
 
@@ -33,7 +33,7 @@ var BlogList = React.createClass({
 			return (
 				<div>
 						<h3> {blog.title} </h3>
-						<p> {blog.body} </p>
+						<p> <strong>{blog.body}</strong> </p>
 						<p> {blog.date} </p>
 							{comments}					
 						<BlogComment blogId={blog._id} onPost={self.props.newData}/>

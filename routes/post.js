@@ -4,6 +4,22 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 router.use(bodyParser.urlencoded({ extended: true }))
 
+
+function isLoggedIn(req, res, next){
+  console.log('is logged in is being called')
+  if(req.isAuthenticated())
+    return next();
+  res.redirect('/');
+}
+var validBlogs =[];
+function filterByTitle(obj){
+  if ('title' in obj && typeof(obj.title) === 'string'){
+    validBlogs.push(obj);
+    return true;
+  } else {
+    return false;
+  }
+};
 //url/api/blogs
 router.route('/')
 

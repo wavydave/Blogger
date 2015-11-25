@@ -4,11 +4,12 @@
     <title>Node Authentication</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <style>
         body         { padding-top:80px; word-wrap:break-word; }
     </style>
 </head>
-<body>
+<body class="blg-img" >
 <div class="container">
 
     <div class="page-header text-center">
@@ -26,6 +27,7 @@
                         <strong>id</strong>: <%= user._id %><br>
                         <strong>email</strong>: <%= user.local.email %><br>
                         <strong>handle</strong>: <%= user.local.handle %><br>
+                        <strong>Admin</strong>: <%= user.local.admin %><br>
                     </p>
                     <div class="col-xs-3">
                         <a class="btn btn-success" href="./index.html" role="button">Return to Site</a>
