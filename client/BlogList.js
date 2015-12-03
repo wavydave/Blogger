@@ -16,14 +16,14 @@ var BlogList = React.createClass({
 						console.log("************", comment.user)
 						var grav = "http://gravatar.com/avatar/" + md5(comment.user.local.email); 
 						var gravy = <img src={grav}/>
-						var guy = {comment.user.local.handle}
+						
 					}
 					
 					var newDate = prettydate.format(new Date(comment.date))
 				return (
 					<figure className={comment}>
 						{gravy}
-					<p><strong>{comment.body}</strong> <strong>{newDate}</strong> <strong>guy</strong></p>
+					<p><strong>{comment.body}</strong> <strong>{newDate}</strong></p>
 					</figure>
 						)
 
